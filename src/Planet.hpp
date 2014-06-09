@@ -24,7 +24,7 @@ public:
     static void drawAll( const Ship& ship , sf::RenderTarget& target , sf::RenderStates states = sf::RenderStates::Default );
     static void syncObjects( const sf::Window& referTo );
 
-    static void add( const sf::Vector2f& position , const float32& radius , const sf::Color& color );
+    static Planet* add( const sf::Vector2f& position , const float32& radius , const sf::Color& color );
     static void applyUnivGravity();
 
     sf::CircleShape shape;

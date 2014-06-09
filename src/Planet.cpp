@@ -42,8 +42,10 @@ void Planet::syncObjects( const sf::Window& referTo ) {
     }
 }
 
-void Planet::add( const sf::Vector2f& position , const float32& radius , const sf::Color& color ) {
+Planet* Planet::add( const sf::Vector2f& position , const float32& radius , const sf::Color& color ) {
     m_planets.push_back( new Planet( position , radius , color ) );
+
+    return *m_planets.rbegin();
 }
 
 void Planet::applyUnivGravity() {

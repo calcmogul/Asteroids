@@ -41,9 +41,9 @@
 									<listOptionValue builtIn="false" value="sfml-graphics-s"/>
 									<listOptionValue builtIn="false" value="sfml-window-s"/>
 									<listOptionValue builtIn="false" value="sfml-system-s"/>
-									<listOptionValue builtIn="false" value="Box2D.dll"/>
+									<listOptionValue builtIn="false" value="Box2D"/>
 								</option>
-								<option id="gnu.cpp.link.option.flags.1543492538" name="Linker flags" superClass="gnu.cpp.link.option.flags" value="" valueType="string"/>
+								<option id="gnu.cpp.link.option.flags.1543492538" name="Linker flags" superClass="gnu.cpp.link.option.flags" value="-static-libgcc -static-libstdc++" valueType="string"/>
 								<option id="gnu.cpp.link.option.userobjs.64264208" name="Other objects" superClass="gnu.cpp.link.option.userobjs" valueType="userObjs">
 									<listOptionValue builtIn="false" value="src/Resources.res"/>
 								</option>
@@ -101,9 +101,9 @@
 									<listOptionValue builtIn="false" value="sfml-graphics-s"/>
 									<listOptionValue builtIn="false" value="sfml-window-s"/>
 									<listOptionValue builtIn="false" value="sfml-system-s"/>
-									<listOptionValue builtIn="false" value="Box2D.dll"/>
+									<listOptionValue builtIn="false" value="Box2D"/>
 								</option>
-								<option id="gnu.cpp.link.option.flags.1885961769" name="Linker flags" superClass="gnu.cpp.link.option.flags" value="" valueType="string"/>
+								<option id="gnu.cpp.link.option.flags.1885961769" name="Linker flags" superClass="gnu.cpp.link.option.flags" value="-static-libgcc -static-libstdc++" valueType="string"/>
 								<option id="gnu.cpp.link.option.other.64295660" name="Other options (-Xlinker [option])" superClass="gnu.cpp.link.option.other" valueType="stringList">
 									<listOptionValue builtIn="false" value="-subsystem"/>
 									<listOptionValue builtIn="false" value="windows"/>

@@ -47,9 +47,16 @@ int main() {
     Ship myShip( sf::Vector2f( 0.f , 300.f ) , 100.f );
     ProgressBar healthBar( sf::Vector2f( 100.f , 19.f ) , "Health" , sf::Color( 120 , 0 , 0 ) , sf::Color( 40 , 40 , 40 ) , sf::Color( 50 , 50 , 50 ) );
 
-    for ( unsigned int index = 0 ; index < 1 ; index++ ) {
-        Planet::add( sf::Vector2f( 200.f * index , 0.f ) , 100.f / 30.f , sf::Color( 0 , 128 , 0 ) );
+    Planet::add( sf::Vector2f( 0.f , 200.f ) , 5.f , sf::Color( 0 , 210 , 0 ) );
+
+#if 0
+    for ( unsigned int index = 0 ; index < 20 ; index++ ) {
+        Planet* tempPlanet = Planet::add( sf::Vector2f( rand() % 2000 - 1000 , rand() % 2000 - 1000 ) , (rand() % 149 + 1.f) / 30.f , sf::Color( rand() % 256 , rand() % 256 , rand() % 256 ) );
+        float temp = rand() / 100.f;
+        float randDir = (temp - static_cast<int>(temp)) * 100.f;
+        tempPlanet->body->SetLinearVelocity( b2Vec2( 30.f * cos( randDir ) , 30.f * sin( randDir ) ) );
     }
+#endif
     /*Planet::add( sf::Vector2f( 0.f , 0.f ) , 100.f / 30.f , sf::Color( 0 , 0 , 255 ) ); // 200.f / 30.f
     Planet::add( sf::Vector2f( 500.f , 0.f ) , 100.f / 30.f , sf::Color( 255 , 0 , 0 ) );
     Planet::add( sf::Vector2f( 900.f , 0.f ) , 1000.f / 30.f , sf::Color( 255 , 255 , 0 ) );*/
@@ -57,7 +64,7 @@ int main() {
     // Prepare for simulation. Typically we use a time step of 1/60 of a
     // second (60Hz) and 10 iterations. This provides a high quality simulation
     // in most game scenarios.
-    float32 timeStep = 1.0f / 60.0f;
+    float32 timeStep = 1.0f / 60.f;
     int32 velocityIterations = 1; //6
     int32 positionIterations = 1; //2
 
@@ -105,8 +112,10 @@ int main() {
 
             myShip.controlShip();
 
-            if ( sf::Keyboard::isKeyPressed( sf::Keyboard::Space ) && shootClock.getElapsedTime().asMilliseconds() > 0 ) {
-                Bullet::add( myShip , mainWin );
+            if ( sf::Keyboard::isKeyPressed( sf::Keyboard::Space ) && shootClock.getElapsedTime().asMilliseconds() > 100 ) {
+                //Bullet::add( myShip , mainWin );
+                Planet* tempPlanet = Planet::add( sf::Vector2f( myShip.drawShape->getPosition().x + 1.5f * cos( myShip.body->GetAngle() + b2_pi / 2.f ) , myShip.drawShape->getPosition().y + 1.5f * sin( myShip.body->GetAngle() + b2_pi / 2.f ) ) , (rand() % 49 + 1.f) / 30.f , sf::Color( rand() % 256 , rand() % 256 , rand() % 256 ) );
+                tempPlanet->body->SetLinearVelocity( b2Vec2( 15.f * cos( myShip.body->GetAngle() + b2_pi / 2.f ) , 15.f * sin( myShip.body->GetAngle() + b2_pi / 2.f ) ) );
                 shootClock.restart();
             }
 

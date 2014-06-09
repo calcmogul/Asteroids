@@ -59,14 +59,14 @@ void Bullet::checkCollisions( const Ship& ship , const sf::Window& referTo ) {
     }
 }
 
-Bullet::Bullet( const Ship& ship , const sf::Window& referTo ) : Box2DBase( &shape , BoxToSFML( ship.body->GetPosition().x + 1.5f * cos( ship.body->GetAngle() + b2_pi / 2.f ) , ship.body->GetPosition().y + 1.5f * sin( ship.body->GetAngle() + b2_pi / 2.f ) , referTo.getSize().y ) , b2_dynamicBody ) , shape( sf::Vector2f( 2.f , 10.f ) ) {
+Bullet::Bullet( const Ship& ship , const sf::Window& referTo ) : Box2DBase( &shape , BoxToSFML( ship.body->GetPosition().x + 1.5f * cos( ship.body->GetAngle() + b2_pi / 2.f ) , ship.body->GetPosition().y + 1.5f * sin( ship.body->GetAngle() + b2_pi / 2.f ) , referTo.getSize().y ) , b2_dynamicBody ) , shape( sf::Vector2f( 134.16f , 134.16f ) ) {
     float angle = ship.body->GetAngle();
 
     // Define the ground box shape.
     b2PolygonShape bulletBox;
 
     // The extents are the half-widths of the box.
-    bulletBox.SetAsBox( 1.f / 30.f , 5.f / 30.f );
+    bulletBox.SetAsBox( shape.getSize().x / 2.f / 30.f , shape.getSize().y / 2.f / 30.f );
 
     // Add the bullet fixture to the bullet body.
     body->CreateFixture( &bulletBox , 1.f );
