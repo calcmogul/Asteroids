@@ -1,36 +1,33 @@
-//=============================================================================
-//File Name: Ship.hpp
-//Description: Controls Box2D ship
-//Author: Tyler Veness
-//=============================================================================
+// Copyright (c) Tyler Veness
 
-#ifndef SHIP_HPP
-#define SHIP_HPP
+#pragma once
 
-#include "Box2DBase.hpp"
 #include <SFML/Graphics/ConvexShape.hpp>
 #include <SFML/Graphics/Texture.hpp>
 #include <SFML/Window/Keyboard.hpp>
 
+#include "Box2DBase.hpp"
+
+/**
+ * Controls Box2D ship.
+ */
 class Ship : public Box2DBase {
-public:
-    Ship( const sf::Vector2f& position , float fullHealth );
-    virtual ~Ship();
+ public:
+  Ship(const sf::Vector2f& position, float fullHealth);
+  virtual ~Ship();
 
-    void controlShip();
-    float getHealth();
+  void controlShip();
+  float getHealth();
 
-    sf::ConvexShape shape;
+  sf::ConvexShape shape;
 
-protected:
-    static sf::Texture m_shipTexture;
-    static bool m_isLoaded;
-    float m_health;
+ protected:
+  static sf::Texture m_shipTexture;
+  static bool m_isLoaded;
+  float m_health;
 
-private:
-    static float m_maxSpeed;
+ private:
+  static float m_maxSpeed;
 
-    b2Vec2 m_shipSpeed;
+  b2Vec2 m_shipSpeed;
 };
-
-#endif // SHIP_HPP
