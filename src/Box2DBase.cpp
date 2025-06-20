@@ -49,7 +49,7 @@ Box2DBase::~Box2DBase() {
 
 void Box2DBase::syncObject( const sf::Window& referTo ) {
     drawShape->setPosition( BoxToSFML( body->GetPosition().x , body->GetPosition().y , referTo.getSize().y ) );
-    drawShape->setRotation( 360.f - body->GetAngle() * 180.f / b2_pi );
+    drawShape->setRotation( sf::radians(-body->GetAngle()) );
 }
 
 void Box2DBase::draw( sf::RenderTarget& target , sf::RenderStates states ) const {

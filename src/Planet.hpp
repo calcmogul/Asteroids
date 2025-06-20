@@ -24,14 +24,14 @@ public:
     static void drawAll( const Ship& ship , sf::RenderTarget& target , sf::RenderStates states = sf::RenderStates::Default );
     static void syncObjects( const sf::Window& referTo );
 
-    static Planet* add( const sf::Vector2f& position , const float32& radius , const sf::Color& color );
+    static Planet* add( const sf::Vector2f& position , const float& radius , const sf::Color& color );
     static void applyUnivGravity();
 
     sf::CircleShape shape;
     sf::Shader shader;
 
 private:
-    Planet( const sf::Vector2f& position , const float32& radius , const sf::Color& color );
+    Planet( const sf::Vector2f& position , const float& radius , const sf::Color& color );
 
     static std::vector<Planet*> m_planets;
 

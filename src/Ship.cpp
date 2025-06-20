@@ -13,10 +13,7 @@ float Ship::m_maxSpeed = 10.f;
 
 Ship::Ship( const sf::Vector2f& position , float fullHealth ) : Box2DBase( &shape , position , b2_dynamicBody ) , shape( 6 ) {
     if ( !m_isLoaded ) {
-        sf::Image shipImage;
-        if ( !shipImage.loadFromFile( "Resources/GalagaShip.png" ) ) {
-            exit( 1 );
-        }
+        sf::Image shipImage{"resources/GalagaShip.png"};
 
         if ( !m_shipTexture.loadFromImage( shipImage ) ) {
             exit( 1 );
@@ -46,7 +43,7 @@ Ship::Ship( const sf::Vector2f& position , float fullHealth ) : Box2DBase( &shap
     for ( unsigned int index = 0 ; index < 6 ; index++ ) {
         shape.setPoint( index , sf::Vector2f( shipVertices[index].x * 30.f , m_shipTexture.getSize().y - shipVertices[index].y * 30.f ) );
     }
-    shape.setOrigin( 0 , m_shipTexture.getSize().y );
+    shape.setOrigin( {0.f , static_cast<float>(m_shipTexture.getSize().y)} );
 
     shape.setTexture( &m_shipTexture );
     /* ============================= */
@@ -57,11 +54,11 @@ Ship::~Ship() {
 }
 
 void Ship::controlShip() {
-    if ( sf::Keyboard::isKeyPressed( sf::Keyboard::Left ) ) {
+    if ( sf::Keyboard::isKeyPressed( sf::Keyboard::Key::Left ) ) {
         body->SetAngularVelocity( body->GetAngularVelocity() + 0.1f );
     }
 
-    if ( sf::Keyboard::isKeyPressed( sf::Keyboard::Right ) ) {
+    if ( sf::Keyboard::isKeyPressed( sf::Keyboard::Key::Right ) ) {
         body->SetAngularVelocity( body->GetAngularVelocity() - 0.1f );
     }
 
@@ -74,17 +71,17 @@ void Ship::controlShip() {
         body->SetTransform( body->GetPosition() , tempAngle + 2.f * b2_pi );
     }
 
-    if ( sf::Keyboard::isKeyPressed( sf::Keyboard::Up ) ) {
-        body->ApplyForceToCenter( b2Vec2( 7.5f * cos( body->GetAngle() + b2_pi / 2.f ) , 7.5f * sin( body->GetAngle() + b2_pi / 2 ) ) );
+    if ( sf::Keyboard::isKeyPressed( sf::Keyboard::Key::Up ) ) {
+        body->ApplyForceToCenter( b2Vec2( 7.5f * cos( body->GetAngle() + b2_pi / 2.f ) , 7.5f * sin( body->GetAngle() + b2_pi / 2 ) ), true );
     }
 
-    if ( sf::Keyboard::isKeyPressed( sf::Keyboard::Down ) ) {
-        body->ApplyForceToCenter( b2Vec2( -7.5f * cos( body->GetAngle() + b2_pi / 2.f ) , -7.5f * sin( body->GetAngle() + b2_pi / 2 ) ) );
+    if ( sf::Keyboard::isKeyPressed( sf::Keyboard::Key::Down ) ) {
+        body->ApplyForceToCenter( b2Vec2( -7.5f * cos( body->GetAngle() + b2_pi / 2.f ) , -7.5f * sin( body->GetAngle() + b2_pi / 2 ) ), true );
     }
 
     m_shipSpeed = body->GetLinearVelocity();
     /*if ( m_shipSpeed.Length() > m_maxSpeed ) {
-        float32 angle = atan2( m_shipSpeed.y , m_shipSpeed.x );
+        float angle = atan2( m_shipSpeed.y , m_shipSpeed.x );
 
         body->SetLinearVelocity( b2Vec2( m_shipSpeed.x - ( m_shipSpeed.Length() - m_maxSpeed ) * cos( angle ) , m_shipSpeed.y - ( m_shipSpeed.Length() - m_maxSpeed ) * sin( angle ) ) );
     }*/

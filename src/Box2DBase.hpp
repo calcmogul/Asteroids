@@ -7,14 +7,10 @@
 #ifndef BOX2D_BASE_HPP
 #define BOX2D_BASE_HPP
 
-#include <Box2D/Box2D.h>
 #include <SFML/Graphics/Shape.hpp>
 #include <SFML/Graphics/RenderTarget.hpp>
 #include <SFML/Window/Window.hpp>
-
-namespace Constant {
-    static double G = 6.6738480f;
-}
+#include <box2d/box2d.h>
 
 float BoxToSFML_x( float x );
 float BoxToSFML_y( float y , float boxHeight );

@@ -26,7 +26,7 @@ void Bullet::cleanup() {
     }
 }
 
-void Bullet::drawAll( sf::RenderTarget& target , sf::RenderStates states ) {
+void Bullet::drawAll( sf::RenderTarget& target , [[maybe_unused]] sf::RenderStates states ) {
     for ( unsigned int index = 0 ; index < bullets.size() ; index++ ) {
         target.draw( *bullets[index] );
     }
@@ -76,5 +76,5 @@ Bullet::Bullet( const Ship& ship , const sf::Window& referTo ) : Box2DBase( &sha
     body->SetTransform( body->GetPosition() , angle );
 
     shape.setFillColor( sf::Color( 255 , 255 , 0 ) );
-    shape.setOrigin( 5.f , 1.f );
+    shape.setOrigin( {5.f , 1.f} );
 }
