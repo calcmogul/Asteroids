@@ -6,7 +6,7 @@
 
 #include <SFML/Graphics/RectangleShape.hpp>
 
-#include "Box2DBase.hpp"
+#include "box2d_base.hpp"
 
 class Ship;
 

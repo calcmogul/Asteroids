@@ -8,7 +8,7 @@
 #include <SFML/Graphics/Color.hpp>
 #include <SFML/Graphics/Shader.hpp>
 
-#include "Box2DBase.hpp"
+#include "box2d_base.hpp"
 
 class Ship;
 

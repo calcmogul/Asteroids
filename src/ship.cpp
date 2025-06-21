@@ -1,6 +1,6 @@
 // Copyright (c) Tyler Veness
 
-#include "Ship.hpp"
+#include "ship.hpp"
 
 #include <SFML/Graphics/Image.hpp>
 

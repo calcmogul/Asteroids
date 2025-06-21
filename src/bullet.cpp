@@ -1,10 +1,10 @@
 // Copyright (c) Tyler Veness
 
-#include "Bullet.hpp"
+#include "bullet.hpp"
 
 #include <vector>
 
-#include "Ship.hpp"
+#include "ship.hpp"
 
 std::vector<Bullet*> Bullet::bullets;
 

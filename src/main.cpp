@@ -11,10 +11,10 @@
 #include <SFML/Window/Event.hpp>
 #include <SFML/Window/Keyboard.hpp>
 
-#include "Bullet.hpp"
-#include "Planet.hpp"
-#include "ProgressBar.hpp"
-#include "Ship.hpp"
+#include "bullet.hpp"
+#include "planet.hpp"
+#include "progress_bar.hpp"
+#include "ship.hpp"
 
 int main() {
   sf::RenderWindow mainWin(sf::VideoMode({800u, 600u}),
