@@ -8,9 +8,7 @@
 
 #include "box2d_base.hpp"
 
-/**
- * Controls Box2D ship.
- */
+/// Controls Box2D ship.
 class Ship : public Box2DBase {
  public:
   Ship(const sf::Vector2f& position, float fullHealth);

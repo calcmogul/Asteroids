@@ -12,14 +12,12 @@
 
 class Ship;
 
-/**
- * Handles creating planets of different colors in world.
- */
+/// Handles creating planets of different colors in world.
 class Planet : public Box2DBase {
  public:
   virtual ~Planet();
 
-  // Call this at end of program to free all planets and avoid memory leaks
+  /// Call this at end of program to free all planets and avoid memory leaks
   static void cleanup();
 
   static void drawAll(const Ship& ship, sf::RenderTarget& target,
