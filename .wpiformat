@@ -1,5 +1,0 @@
-modifiableFileExclude {
-  \.ico$
-  \.png$
-  \.ttf$
-}
