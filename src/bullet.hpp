@@ -13,7 +13,7 @@ class Ship;
 /// Handles all bullets created by entities.
 class Bullet : public Box2DBase {
  public:
-  virtual ~Bullet();
+  ~Bullet() override;
 
   /// Call this at end of program to free all bullets and avoid memory leaks
   static void cleanup();

@@ -12,7 +12,7 @@
 class Ship : public Box2DBase {
  public:
   Ship(const sf::Vector2f& position, float fullHealth);
-  virtual ~Ship();
+  ~Ship() override;
 
   void controlShip();
   float getHealth();

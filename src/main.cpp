@@ -47,17 +47,17 @@ int main() {
   Planet::add(sf::Vector2f(0.f, 200.f), 5.f, sf::Color(0, 210, 0));
 
 #if 0
-    for ( unsigned int index = 0 ; index < 20 ; index++ ) {
-        Planet* tempPlanet = Planet::add( sf::Vector2f( std::rand() % 2000 - 1000 , std::rand() % 2000 - 1000 ) , (std::rand() % 149 + 1.f) / 30.f , sf::Color( std::rand() % 256 , std::rand() % 256 , std::rand() % 256 ) );
-        float temp = std::rand() / 100.f;
-        float randDir = (temp - static_cast<int>(temp)) * 100.f;
-        tempPlanet->body->SetLinearVelocity( b2Vec2( 30.f * std::cos( randDir ) , 30.f * std::sin( randDir ) ) );
-    }
+  for (unsigned int index = 0; index < 20; index++) {
+    Planet* tempPlanet = Planet::add(
+        sf::Vector2f(std::rand() % 2000 - 1000, std::rand() % 2000 - 1000),
+        (std::rand() % 149 + 1.f) / 30.f,
+        sf::Color(std::rand() % 256, std::rand() % 256, std::rand() % 256));
+    float temp = std::rand() / 100.f;
+    float randDir = (temp - static_cast<int>(temp)) * 100.f;
+    tempPlanet->body->SetLinearVelocity(
+        b2Vec2(30.f * std::cos(randDir), 30.f * std::sin(randDir)));
+  }
 #endif
-  /*Planet::add( sf::Vector2f( 0.f , 0.f ) , 100.f / 30.f , sf::Color( 0 , 0 ,
-  255 ) ); // 200.f / 30.f Planet::add( sf::Vector2f( 500.f , 0.f ) , 100.f
-  / 30.f , sf::Color( 255 , 0 , 0 ) ); Planet::add( sf::Vector2f( 900.f , 0.f )
-  , 1000.f / 30.f , sf::Color( 255 , 255 , 0 ) );*/
 
   // Prepare for simulation. Typically we use a time step of 1/60 of a
   // second (60Hz) and 10 iterations. This provides a high quality simulation
@@ -67,8 +67,8 @@ int main() {
   int32 positionIterations = 1;  // 2
 
   mainWin.setView(sf::View(
-      sf::FloatRect({myShip.shape.getPosition().x - mainWin.getSize().x / 2,
-                     myShip.shape.getPosition().y - mainWin.getSize().y / 2},
+      sf::FloatRect({myShip.shape.getPosition().x - mainWin.getSize().x / 2.f,
+                     myShip.shape.getPosition().y - mainWin.getSize().y / 2.f},
                     {static_cast<float>(mainWin.getSize().x),
                      static_cast<float>(mainWin.getSize().y)})));
 
@@ -133,49 +133,49 @@ int main() {
       /* ===== Handle background texture shifting with ship ===== */
       // Move background left
       if (myShip.shape.getPosition().x - backgroundSprite.getPosition().x <
-          mainWin.getSize().x / 2 + 86.f) {
+          mainWin.getSize().x / 2.f + 86.f) {
         backgroundSprite.setPosition(
             {backgroundSprite.getPosition().x -
                  86.f * (std::ceil(std::fabs(myShip.shape.getPosition().x -
                                              backgroundSprite.getPosition().x -
-                                             mainWin.getSize().x / 2 - 86.f) /
+                                             mainWin.getSize().x / 2.f - 86.f) /
                                    86.f)),
              backgroundSprite.getPosition().y});
       }
 
       // Move background right
       if (myShip.shape.getPosition().x - backgroundSprite.getPosition().x >
-          mainWin.getSize().x / 2 + 86.f) {
+          mainWin.getSize().x / 2.f + 86.f) {
         backgroundSprite.setPosition(
             {backgroundSprite.getPosition().x +
                  86.f * (std::ceil(std::fabs(myShip.shape.getPosition().x -
                                              backgroundSprite.getPosition().x -
-                                             mainWin.getSize().x / 2 - 86.f) /
+                                             mainWin.getSize().x / 2.f - 86.f) /
                                    86.f)),
              backgroundSprite.getPosition().y});
       }
 
       // Move background up
       if (myShip.shape.getPosition().y - backgroundSprite.getPosition().y <
-          mainWin.getSize().y / 2 + 86.f) {
+          mainWin.getSize().y / 2.f + 86.f) {
         backgroundSprite.setPosition(
             {backgroundSprite.getPosition().x,
              backgroundSprite.getPosition().y -
                  86.f * (std::ceil(std::fabs(myShip.shape.getPosition().y -
                                              backgroundSprite.getPosition().y -
-                                             mainWin.getSize().y / 2 - 86.f) /
+                                             mainWin.getSize().y / 2.f - 86.f) /
                                    86.f))});
       }
 
       // Move background down
       if (myShip.shape.getPosition().y - backgroundSprite.getPosition().y >
-          mainWin.getSize().y / 2 + 86.f) {
+          mainWin.getSize().y / 2.f + 86.f) {
         backgroundSprite.setPosition(
             {backgroundSprite.getPosition().x,
              backgroundSprite.getPosition().y +
                  86.f * (std::ceil(std::fabs(myShip.shape.getPosition().y -
                                              backgroundSprite.getPosition().y -
-                                             mainWin.getSize().y / 2 - 86.f) /
+                                             mainWin.getSize().y / 2.f - 86.f) /
                                    86.f))});
       }
       /* ======================================================== */

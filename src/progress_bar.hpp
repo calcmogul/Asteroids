@@ -40,5 +40,5 @@ class ProgressBar : public sf::RectangleShape {
   sf::Text sfText;
 
   void draw(sf::RenderTarget& target,
-            sf::RenderStates states = sf::RenderStates::Default) const;
+            sf::RenderStates states = sf::RenderStates::Default) const override;
 };

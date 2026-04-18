@@ -24,12 +24,12 @@ class Box2DBase : public sf::Drawable {
             const sf::Vector2f& position,  // starting position of object
             b2BodyType bodyType = b2_staticBody  // Box2D body type
   );
-  virtual ~Box2DBase();
+  ~Box2DBase() override;
 
   void syncObject(const sf::Window&
                       referTo);  // syncs Box2D body attributes with SFML shape
   void draw(sf::RenderTarget& target,
-            sf::RenderStates states = sf::RenderStates::Default) const;
+            sf::RenderStates states = sf::RenderStates::Default) const override;
 
   static b2World world;
 
